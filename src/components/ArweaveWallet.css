@@ -1,0 +1,181 @@
+/* Umum */
+.wallet-container {
+    text-align: center;
+    background-color: #e0f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    padding: 0 20px; /* Padding kiri dan kanan, tidak ada padding tambahan */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+  }
+  
+  .generate-btn, .download-btn {
+    background-color: #0097a7;
+    color: white;
+    padding: 10px 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Tombol mengisi lebar layar pada perangkat kecil */
+    max-width: 250px; /* Menentukan lebar maksimum tombol */
+  }
+  
+  .generate-btn:hover, .download-btn:hover {
+    background-color: #007c91;
+  }
+  
+  .wallet-info {
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    text-align: center; /* Menjadikan semua teks di dalam wallet-info rata tengah */
+  }
+  
+  .info-section {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  span {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    color: blue;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #000;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+  }
+  
+  /* Media Queries untuk Responsivitas */
+  
+  /* Untuk layar kecil seperti smartphone */
+  @media (max-width: 600px) {
+    .wallet-container {
+      padding: 0 10px; /* Padding kecil pada perangkat kecil */
+    }
+  
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-image {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+  
+    h1 {
+      font-size: 28px;
+      margin-top: 10px;
+    }
+  
+    .generate-btn, .download-btn {
+      font-size: 16px;
+      padding: 8px 16px;
+      width: 100%; /* Tombol mengisi lebar layar */
+    }
+  
+    .wallet-info h3 {
+      font-size: 18px;
+    }
+  
+    footer {
+      font-size: 12px;
+    }
+  }
+  
+  /* Untuk layar tablet dan perangkat dengan lebar medium */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-image {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 10px;
+    }
+  
+    h1 {
+      font-size: 32px;
+    }
+  
+    .generate-btn, .download-btn {
+      font-size: 18px;
+      padding: 10px 20px;
+      width: 100%; /* Tombol mengisi lebar layar */
+    }
+  
+    .wallet-info h3 {
+      font-size: 18px;
+    }
+  
+    footer {
+      font-size: 14px;
+    }
+  }
+  
+  /* Untuk layar besar, memastikan layout tetap teratur */
+  @media (min-width: 1024px) {
+    .generate-btn, .download-btn {
+      font-size: 20px;
+      padding: 12px 24px;
+      width: auto;
+    }
+  
+    .wallet-info h3 {
+      font-size: 22px;
+    }
+  
+    footer {
+      font-size: 16px;
+    }
+  }
+  

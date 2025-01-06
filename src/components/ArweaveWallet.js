@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Arweave from 'arweave';
 import { ethers } from 'ethers';
 import './ArweaveWallet.css';
+// (Opsional) Jika install @fortawesome/fontawesome-free:
+// import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const ArweaveWallet = () => {
   const [address, setAddress] = useState('');
@@ -18,10 +20,13 @@ const ArweaveWallet = () => {
 
     setAddress(address);
     setSeedPhrase(mnemonic);
-    setWalletFile(new Blob([JSON.stringify(arweaveWallet)], { type: 'application/json' }));
+    setWalletFile(
+      new Blob([JSON.stringify(arweaveWallet)], { type: 'application/json' })
+    );
   };
 
   const downloadWallet = () => {
+    if (!walletFile) return;
     const url = URL.createObjectURL(walletFile);
     const a = document.createElement('a');
     a.href = url;
@@ -37,13 +42,20 @@ const ArweaveWallet = () => {
         <img src="/bgpateng.png" alt="Profile" className="profile-image" />
         <h1>GENERATE AR WALLET</h1>
       </div>
-      <button className="generate-btn" onClick={generateWallet}>Generate</button>
+
+      <button className="generate-btn" onClick={generateWallet}>
+        Generate
+      </button>
+
       {address && (
         <div className="wallet-info">
           {/* Your Address Section */}
           <div className="info-section">
             <h3>Your Address:</h3>
-            <span onClick={() => copyToClipboard(address)} style={{ cursor: 'pointer', color: 'blue' }}>
+            <span
+              onClick={() => copyToClipboard(address)}
+              style={{ cursor: 'pointer', color: 'blue' }}
+            >
               {address}
             </span>
           </div>
@@ -51,25 +63,66 @@ const ArweaveWallet = () => {
           {/* Seed Phrase Section */}
           <div className="info-section">
             <h3>Seed Phrase:</h3>
-            <span onClick={() => copyToClipboard(seedPhrase)} style={{ cursor: 'pointer', color: 'blue' }}>
+            <span
+              onClick={() => copyToClipboard(seedPhrase)}
+              style={{ cursor: 'pointer', color: 'blue' }}
+            >
               {seedPhrase}
             </span>
           </div>
 
-          <button className="download-btn" onClick={downloadWallet}>Download Json Wallet</button>
+          <button className="download-btn" onClick={downloadWallet}>
+            Download Json Wallet
+          </button>
         </div>
       )}
-<footer>
-  <p>Created By : <a href="https://t.me/bangpateng_airdrop" target="_blank" rel="noopener noreferrer">Bang Pateng</a></p>
-</footer>
+
+      <footer>
+        <p>
+          Created By :{' '}
+          <a
+            href="https://t.me/bgpateng"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              className="fab fa-telegram-plane"
+              style={{ marginRight: '5px' }}
+            />
+            Bang Pateng
+          </a>{' '}
+          |{' '}
+          <a
+            href="https://t.me/bangpateng_airdrop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i
+              className="fab fa-telegram-plane"
+              style={{ marginRight: '5px' }}
+            />
+            Telegram Channel
+          </a>{' '}
+          |{' '}
+          <a
+            href="https://twitter.com/bangpateng_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-twitter" style={{ marginRight: '5px' }} />
+            Twitter
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };
 
 const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text)
+  navigator.clipboard
+    .writeText(text)
     .then(() => alert('Copied to clipboard!'))
-    .catch(err => console.error('Error copying text: ', err));
+    .catch((err) => console.error('Error copying text: ', err));
 };
 
 export default ArweaveWallet;
